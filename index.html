@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CrowdTrain — prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>OpenLab AI</h1>
+      <small> (prototype)</small>
+    </div>
+    <nav>
+      <button data-route="home" class="nav-btn">Home</button>
+      <button data-route="contrib" class="nav-btn">Contributor</button>
+      <button data-route="client" class="nav-btn">Client</button>
+      <button data-route="admin" class="nav-btn">Admin</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Home -->
+    <section id="home" class="page">
+      <div class="hero">
+        <h2>Create a digital Lab with the help of AI</h2>
+        <p>Prototype demo: label data, review AI outputs, and get rewarded. Or upload tasks as a client.</p>
+        <div class="cta-row">
+          <button id="cta-contrib" class="btn primary">Try as Contributor</button>
+          <button id="cta-client" class="btn outline">Post a Task (Client)</button>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="card">
+          <h3>All data types</h3>
+          <p>Text, images, audio notes, and ratings — simulated here.</p>
+        </div>
+        <div class="card">
+          <h3>Reward system</h3>
+          <p>Complete tasks, earn credits. View balance in your wallet.</p>
+        </div>
+        <div class="card">
+          <h3>Quality control</h3>
+          <p>Multiple reviewers and simple validation rules.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contributor -->
+    <section id="contrib" class="page hidden">
+      <div class="panel">
+        <h2>Contributor Dashboard</h2>
+        <div class="row">
+          <div class="col left-col">
+            <div class="wallet">
+              <h4>Your Wallet</h4>
+              <div id="wallet-balance">Credits: 0</div>
+            </div>
+
+            <div class="task-list">
+              <h4>Available Tasks</h4>
+              <ul id="task-list-ul"></ul>
+            </div>
+          </div>
+
+          <div class="col right-col">
+            <div id="task-view" class="task-view empty">
+              <h4>Select a task to start</h4>
+              <p>Tasks you click will appear here for annotation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client -->
+    <section id="client" class="page hidden">
+      <div class="panel">
+        <h2>Client — Upload Tasks</h2>
+        <form id="client-upload-form" class="form">
+          <label>Title <input id="task-title" required /></label>
+          <label>Type
+            <select id="task-type">
+              <option value="text">Text labeling</option>
+              <option value="image">Image labeling</option>
+              <option value="rating">AI Response Rating</option>
+            </select>
+          </label>
+          <label>Content / Prompt (for demo paste text or URL) <textarea id="task-content" rows="3"></textarea></label>
+          <label>Reward (credits) <input id="task-reward" type="number" min="1" value="5" /></label>
+          <div class="form-row">
+            <button class="btn primary" type="submit">Create Task</button>
+            <button class="btn outline" id="client-view-tasks" type="button">View Your Tasks</button>
+          </div>
+        </form>
+
+        <div class="client-tasks-list hidden" id="client-tasks-list">
+          <h4>Your Posted Tasks</h4>
+          <ul id="client-tasks-ul"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin -->
+    <section id="admin" class="page hidden">
+      <div class="panel">
+        <h2>Admin Overview</h2>
+        <div class="admin-row">
+          <div>
+            <h4>All Tasks</h4>
+            <ul id="admin-tasks-ul"></ul>
+          </div>
+          <div>
+            <h4>All Contributors (mock)</h4>
+            <ul id="admin-users-ul"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Prototype — Built by Aarush Tiwari</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
